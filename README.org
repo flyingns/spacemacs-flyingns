@@ -1,5 +1,5 @@
-* 子龙山人的 Emacs 配置
-Hacking 始于 2013 年。
+* flyingns 的 Emacs 配置
+Hacking 始于 2016 年。
 
 ** Emacs 爱好者交流平台
 https://slackin-emacs-cn.herokuapp.com/

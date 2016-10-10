@@ -10,17 +10,47 @@
      ivy
      better-defaults
      github
-     ranger
-     colors
-     prodigy
+     (version-control :variables version-control-diff-tool 'git-gutter+
+                      version-control-global-margin t)
+     rcirc
+     ;; osx
+	 deft
+     latex
+     ;; semantic                           ; too slow
+     markdown
+     (vinegar :variables vinegar-reuse-dired-buffer t)
+     org
+     ;;prodigy
      search-engine
      graphviz
      (syntax-checking :variables syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips nil)
      (spell-checking :variables spell-checking-enable-by-default nil)
-     (vinegar :variables vinegar-reuse-dired-buffer t)
-     (spacemacs-layouts :variables layouts-enable-autosave nil
+     yaml
+     ipython-notebook
+     finance
+     java
+     haskell
+     (ruby :variables
+           ruby-enable-enh-ruby-mode t
+           ruby-version-manager 'rvm
+           ruby-test-runner 'rspec)
+     python
+     lua
+     html
+     command-log
+     javascript
+     ;; restclient
+     emacs-lisp
+     ;;(clojure :variables clojure-enable-fancify-symbols t)
+     ranger
+     ;; racket
+     (spacemacs-layouts :variables layouts-enable-autosave t
                         layouts-autosave-delay 300)
+     emoji
+     gtags
+     (colors :variables
+             colors-enable-nyan-cat-progress-bar t)
      (git :variables
           git-magit-status-fullscreen t
           magit-push-always-verify nil
@@ -31,7 +61,7 @@
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      (auto-completion :variables auto-completion-enable-sort-by-usage t
                       :disabled-for org markdown)
-     (osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English")
+     ;;(osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English")
      restclient
      (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      (shell :variables shell-default-shell 'eshell)
@@ -57,27 +87,29 @@
      emacs-lisp
      (clojure :variables clojure-enable-fancify-symbols t)
      racket
-     (c-c++ :variables
-            c-c++-default-mode-for-headers 'c++-mode)
+     ;;(c-c++ :variables
+     ;;       c-c++-default-mode-for-headers 'c++-mode)
+     pandoc     
      zilongshanren
      (chinese :packages youdao-dictionary fcitx
-              :variables chinese-enable-fcitx t
+              :variables chinese-default-input-method 'pinyin
+              chinese-enable-fcitx t
               chinese-enable-youdao-dict t)
      )
    dotspacemacs-additional-packages '(sicp)
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
-   '(counsel-projectile magit-gh-pulls magit-gitflow org-projectile evil-mc
+   '(counsel-projectile magit-gh-pulls magit-gitflow evil-mc
                         evil-args evil-ediff evil-exchange evil-unimpaired
                         evil-indent-plus volatile-highlights
                         spaceline holy-mode skewer-mode rainbow-delimiters
                         highlight-indentation vi-tilde-fringe eyebrowse hl-anything
-                        org-bullets smooth-scrolling org-repo-todo org-download org-timer
+                        smooth-scrolling
                         livid-mode git-gutter git-gutter-fringe  evil-escape
                         leuven-theme gh-md evil-lisp-state spray lorem-ipsum
                         ac-ispell ace-jump-mode auto-complete auto-dictionary
                         clang-format define-word google-translate disaster epic
-                        fancy-battery neotree org-present orgit orglue spacemacs-theme
+                        neotree orgit orglue
                         helm-flyspell flyspell-correct-helm clean-aindent-mode
                         helm-c-yasnippet ace-jump-helm-line helm-make
                         helm-themes helm-swoop helm-spacemacs-help smeargle
@@ -90,19 +122,29 @@
    dotspacemacs-elpa-https t
    dotspacemacs-elpa-timeout 5
    dotspacemacs-check-for-update t
-   dotspacemacs-editing-style 'vim
+   dotspacemacs-editing-style 'hybrid
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner 'official
    dotspacemacs-startup-lists '((recents . 5)
                                 (projects . 7))
    dotspacemacs-scratch-mode 'text-mode
-   dotspacemacs-themes '(solarized-light solarized-dark)
+   ;; List of themes, the first of the list is loaded when spacemacs starts.
+   ;; Press <SPC> T n to cycle to the next theme in the list (works great
+   ;; with 2 themes variants, one dark and one light)
+   dotspacemacs-themes '(spacemacs-dark
+                         spacemacs-light
+                         leuven
+                         monokai
+                         zenburn
+                         solarized-dark
+                         solarized-light)
+   ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 14
+                               :size 13
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.3)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    dotspacemacs-emacs-leader-key "M-m"
@@ -136,7 +178,7 @@
    dotspacemacs-show-transient-state-color-guide t
    dotspacemacs-mode-line-unicode-symbols t
    dotspacemacs-smooth-scrolling nil
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers 'relative
    dotspacemacs-folding-method 'origami
    dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-smart-closing-parenthesis nil
@@ -159,7 +201,7 @@
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
   ;; ss proxy. But it will cause anacond-mode failed.
-  (setq socks-server '("Default server" "127.0.0.1" 1080 5))
+  ;;(setq socks-server '("Default server" "127.0.0.1" 1080 5))
   (setq evil-shift-round nil)
   (setq byte-compile-warnings '(not obsolete))
   (setq warning-minimum-level :error)
@@ -239,3 +281,4 @@
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
 (load custom-file 'no-error 'no-message)
+;;(setq debug-on-error t)
