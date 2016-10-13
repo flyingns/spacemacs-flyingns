@@ -83,13 +83,13 @@
 
       ;; 用於加密的 GPG 金鑰
       ;; 可以設定任何 ID 或是設成 nil 來使用對稱式加密 (symmetric encryption)
-      (setq org-crypt-key nil)
+      (setq org-crypt-key "jarlodon@gmail.com")
 
-      ;; (add-to-list 'auto-mode-alist '("\.org\\'" . org-mode))
+      ;; ;; (add-to-list 'auto-mode-alist '("\.org\\'" . org-mode))
 
-      (setq org-todo-keywords
-            (quote ((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d!/!)")
-                    (sequence "WAITING(w@/!)" "SOMEDAY(S)" "|" "CANCELLED(c@/!)" "MEETING(m)" "PHONE(p)"))))
+      ;; (setq org-todo-keywords
+      ;;       (quote ((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d!/!)")
+      ;;               (sequence "WAITING(w@/!)" "SOMEDAY(S)" "|" "CANCELLED(c@/!)" "MEETING(m)" "PHONE(p)"))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
       ;; Org clock
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
