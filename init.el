@@ -60,13 +60,14 @@
           magit-revision-show-gravatars nil)
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      (auto-completion :variables auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-snippets-in-popup t
                       :disabled-for org markdown)
      ;;(osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English")
      restclient
      (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      (shell :variables shell-default-shell 'eshell)
      docker
-     latex
+     ;; latex
      deft
      markdown
      org
@@ -96,12 +97,12 @@
               chinese-enable-fcitx t
               chinese-enable-youdao-dict t)
      )
-   dotspacemacs-additional-packages '(sicp)
+   dotspacemacs-additional-packages '(sicp )
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
    '(counsel-projectile magit-gh-pulls magit-gitflow evil-mc
                         evil-args evil-ediff evil-exchange evil-unimpaired
-                        evil-indent-plus volatile-highlights
+                        evil-indent-plus volatile-highlights smartparens
                         spaceline holy-mode skewer-mode rainbow-delimiters
                         highlight-indentation vi-tilde-fringe eyebrowse hl-anything
                         smooth-scrolling
@@ -113,7 +114,9 @@
                         helm-flyspell flyspell-correct-helm clean-aindent-mode
                         helm-c-yasnippet ace-jump-helm-line helm-make
                         helm-themes helm-swoop helm-spacemacs-help smeargle
-                        ido-vertical-mode flx-ido company-quickhelp)
+                        ido-vertical-mode flx-ido company-quickhelp
+                        window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
+                        )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
 
@@ -277,7 +280,39 @@
   (add-to-list 'auto-mode-alist
                '("Capstanfile\\'" . yaml-mode))
 
-  (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on))
+  (defun js-indent-line ()
+    "Indent the current line as JavaScript."
+    (interactive)
+    (let* ((parse-status
+            (save-excursion (syntax-ppss (point-at-bol))))
+           (offset (- (point) (save-excursion (back-to-indentation) (point)))))
+      (if (nth 3 parse-status)
+          'noindent
+        (indent-line-to (js--proper-indentation parse-status))
+        (when (> offset 0) (forward-char offset)))))
+
+  (global-set-key (kbd "<backtab>") 'un-indent-by-removing-4-spaces)
+  (defun un-indent-by-removing-4-spaces ()
+    "remove 4 spaces from beginning of of line"
+    (interactive)
+    (save-excursion
+      (save-match-data
+        (beginning-of-line)
+        ;; get rid of tabs at beginning of line
+        (when (looking-at "^\\s-+")
+          (untabify (match-beginning 0) (match-end 0)))
+        (when (looking-at (concat "^" (make-string tab-width ?\ )))
+          (replace-match "")))))
+
+  (defun zilongshanren/toggle-major-mode ()
+    (interactive)
+    (if (eq major-mode 'fundamental-mode)
+        (set-auto-mode)
+      (fundamental-mode)))
+  (spacemacs/set-leader-keys "otm" 'zilongshanren/toggle-major-mode)
+
+  (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
+  )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
 (load custom-file 'no-error 'no-message)
