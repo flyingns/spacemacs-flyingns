@@ -98,64 +98,24 @@
 ;(setq org-bullets-bullet-list '("◉" "○" "✸" "✿" "☢" "❀" "✚" "✜" "◖"))
 (setq org-bullets-bullet-list '("①" "②" "③" "④" "⑤" "⑦" "⑧" "⑨"))
 (setq org-src-tab-acts-natively t)
-(setq org-agenda-files (quote ("~/Nutstore/org/anniversary.org"
-							   "~/Nutstore/org/business.org"
-							   "~/Nutstore/org/organizer.org"
-							   "~/Nutstore/org/finance.org"
-							   "~/Nutstore/org/todo.org"
-							   "~/Nutstore/org/someday.org"
-							   "~/Nutstore/org/project.org"
-							   "~/Nutstore/org/tasks.org")))
+;(setq org-agenda-files (quote ("~/Nutstore/org/anniversary.org"
+;							   "~/Nutstore/org/business.org"
+;							   "~/Nutstore/org/organizer.org"
+;							   "~/Nutstore/org/finance.org"
+;							   "~/Nutstore/org/todo.org"
+;							   "~/Nutstore/org/someday.org"
+;							   "~/Nutstore/org/project.org"
+;							   "~/Nutstore/org/tasks.org")))
 ;; (setq org-agenda-files (list "~/Nutstore/org"))
-(setq org-mobile-files (list "~/Nutstore/org/organizer.org"
-							 "~/Nutstore/org/todo.org"
-							 "~/Nutstore/org/finance.org"
-							 "~/Nutstore/org/someday.org"
-							 "~/Nutstore/org/project.org"
-							 "~/Nutstore/org/tasks.org"))
-(setq org-default-notes-file "~/Nutstore/org/notes.org")
+;(setq org-mobile-files (list "~/Nutstore/org/organizer.org"
+;							 "~/Nutstore/org/todo.org"
+;							 "~/Nutstore/org/finance.org"
+;							 "~/Nutstore/org/someday.org"
+;							 "~/Nutstore/org/project.org"
+;							 "~/Nutstore/org/tasks.org"))
+;(setq org-default-notes-file "~/Nutstore/org/notes.org")
 
-(setq org-capture-templates
-	  '(("t" "Todo" entry (file+headline "~/Nutstore/org/todo.org" "Workspace")
-		 "* TODO %?\n  %i"
-		 :empty-lines 1)
-        ("L" "Ledger" entry (file+headline "~/Nutstore/org/finance.org" "Finance")
-         "* TODO %?\n"
-         :empty-lines 1)
-        ("n" "notes" entry (file+headline "~/Nutstore/org/notes.org" "Quick notes")
-         "* TODO [#C] %?\n  %i\n %U"
-         :empty-lines 1)
-        ("b" "Blog Ideas" entry (file+headline "~/Nutstore/org/notes.org" "Blog Ideas")
-         "* TODO %?\n  %i\n %U"
-         :empty-lines 1)
-        ("w" "work" entry (file+headline "~/Nutstore/org/tasks.org" "Work")
-         "* TODO %?\n  %i\n %U"
-         :empty-lines 1)
-        ("c" "Chrome" entry (file+headline "~/Nutstore/org/notes.org" "Quick notes")
-         "* TODO %?\n %(zilongshanren/retrieve-chrome-current-tab-url)\n %i\n %U"
-         :empty-lines 1)
-        ("l" "links" entry (file+headline "~/Nutstore/org/notes.org" "Quick notes")
-         "* TODO %?\n  %i\n %a \n %U"
-         :empty-lines 1)
-        ("j" "Journal Entry"
-         entry (file+datetree "~/Nutstore/org/journal.org")
-         "* %?"
-         :empty-lines 1)))
-(setq org-agenda-custom-commands
-      '(
-        ("w" . "任务安排")
-        ("wa" "重要且紧急的任务" tags-todo "+PRIORITY=\"A\"")
-        ("wb" "重要且不紧急的任务" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
-        ("wc" "不重要且紧急的任务" tags-todo "+PRIORITY=\"C\"")
-        ("b" "Blog" tags-todo "BLOG")
-        ("p" . "项目安排")
-        ("pw" tags-todo "PROJECT+WORK+CATEGORY=\"cocos2d-x\"")
-        ("pl" tags-todo "PROJECT+DREAM+CATEGORY=\"zilongshanren\"")
-        ("W" "Weekly Review"
-         ((stuck "")            ;; review stuck projects as designated by org-stuck-projects
-          (tags-todo "PROJECT") ;; review all projects (assuming you use todo keywords to designate projects)
-          ))))
-		;;; 补充用法: holiday-float m w n 浮动阳历节日, m 月的第 n 个星期 w%7
+;;; 补充用法: holiday-float m w n 浮动阳历节日, m 月的第 n 个星期 w%7
 (setq general-holidays '((holiday-fixed 1 1   "元旦")
                          (holiday-fixed 2 14  "情人节")
                          (holiday-fixed 4 1   "愚人节")

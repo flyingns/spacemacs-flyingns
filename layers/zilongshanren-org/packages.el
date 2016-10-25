@@ -308,8 +308,6 @@ unwanted space when exporting org-mode to html."
                )
               ("blog" :components ("blog-notes" "blog-static"))))
 
-
-
       (add-hook 'org-after-todo-statistics-hook 'zilong/org-summary-todo)
       ;; used by zilong/org-clock-sum-today-by-tags
 
@@ -317,8 +315,9 @@ unwanted space when exporting org-mode to html."
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "tl" 'org-toggle-link-display)
       (define-key evil-normal-state-map (kbd "C-c C-w") 'org-refile)
-      (setq org-mobile-directory "~/org-notes/org")
-
+      (setq org-mobile-directory "~/Nutstore/mobileorg")
+      (setq org-directory "~/org-notes")
+      (setq org-mobile-inbox-for-pull "~/Nutstore/mobileorg/from-mobile.org")
       ;; hack for org headline toc
       (defun org-html-headline (headline contents info)
         "Transcode a HEADLINE element from Org to HTML.
