@@ -234,8 +234,8 @@ unwanted space when exporting org-mode to html."
               ("s" "Code Snippet" entry
                (file "~/org-notes/snippets.org")
                "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
-              ("w" "work" entry (file+headline "~/org-notes/gtd.org" "Cocos2D-X")
-               "* TODO [#A] %?\n  %i\n %U"
+              ("d" "Diary for morning" entry (file+datetree "~/org-notes/morning/morning.org" "Diary for morning")
+               "* %?"
                :empty-lines 1)
               ("c" "Chrome" entry (file+headline "~/org-notes/notes.org" "Quick notes")
                "* TODO [#C] %?\n %(zilongshanren/retrieve-chrome-current-tab-url)\n %i\n %U"

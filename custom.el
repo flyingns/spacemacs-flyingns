@@ -96,7 +96,7 @@
  '(show-paren-match ((t (:background "dark gray" :foreground "#d33682" :weight bold))))
  '(sp-show-pair-match-face ((t (:background "#272822" :foreground "gray" :inverse-video t :weight normal)))))
 ;(setq org-bullets-bullet-list '("◉" "○" "✸" "✿" "☢" "❀" "✚" "✜" "◖"))
-(setq org-bullets-bullet-list '("①" "②" "③" "④" "⑤" "⑦" "⑧" "⑨"))
+(setq org-bullets-bullet-list '("①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨"))
 (setq org-src-tab-acts-natively t)
 ;(setq org-agenda-files (quote ("~/Nutstore/org/anniversary.org"
 ;							   "~/Nutstore/org/business.org"
