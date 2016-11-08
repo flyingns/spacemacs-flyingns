@@ -187,9 +187,18 @@
          (sh . t)
          (dot . t)
          (js . t)
+         (java . t)
          (latex .t)
          (python . t)
+         (gnuplot . t)
          (emacs-lisp . t)
+         (haskell . t)
+         (ledger . t)
+         (R . t)
+         (sed . t)
+         (awk . t)
+         (shell . t)
+         (sql . t)
          (plantuml . t)
          (C . t)
          (ditaa . t)))
@@ -230,6 +239,9 @@ unwanted space when exporting org-mode to html."
                :empty-lines 1)
               ("b" "Blog Ideas" entry (file+headline "~/org-notes/notes.org" "Blog Ideas")
                "* TODO [#B] %?\n  %i\n %U"
+               :empty-lines 1)
+              ("f" "Finance" entry (file+headline "~/org-notes/ritual.org" "Finance")
+               "* TODO %?\n %i\n"
                :empty-lines 1)
               ("s" "Code Snippet" entry
                (file "~/org-notes/snippets.org")
