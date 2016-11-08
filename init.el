@@ -98,7 +98,7 @@
    dotspacemacs-additional-packages '(sicp )
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
-   '(counsel-projectile magit-gh-pulls magit-gitflow evil-mc
+   '(magit-gh-pulls magit-gitflow org-projectile evil-mc
                         evil-args evil-ediff evil-exchange evil-unimpaired
                         evil-indent-plus volatile-highlights smartparens
                         spaceline holy-mode skewer-mode rainbow-delimiters
@@ -245,11 +245,6 @@
   (spacemacs|diminish ggtags-mode)
   (spacemacs|diminish which-key-mode)
   (spacemacs|diminish spacemacs-whitespace-cleanup-mode)
-
-
-  (when (configuration-layer/layer-usedp 'ivy)
-    (setq projectile-switch-project-action
-          'zilongshanren/open-file-with-projectile-or-counsel-git))
 
   (evilified-state-evilify-map special-mode-map :mode special-mode)
 
