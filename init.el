@@ -66,7 +66,6 @@ values."
      javascript
      ;; restclient
      emacs-lisp
-     ;;(clojure :variables clojure-enable-fancify-symbols t)
      ranger
      ;; racket
      (spacemacs-layouts :variables layouts-enable-autosave t
