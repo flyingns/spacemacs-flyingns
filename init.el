@@ -38,13 +38,12 @@ values."
                       version-control-global-margin t)
      rcirc
      ;; osx
-	 deft
      latex
      ;; semantic                           ; too slow
      markdown
-     (vinegar :variables vinegar-reuse-dired-buffer t)
-     org
      ;;prodigy
+     ranger
+     prodigy
      search-engine
      graphviz
      (syntax-checking :variables syntax-checking-enable-by-default nil
@@ -57,16 +56,14 @@ values."
      haskell
      (ruby :variables
            ruby-enable-enh-ruby-mode t
-           ruby-version-manager 'rvm
+           ruby-version-manager 'chruby			;; rvm
            ruby-test-runner 'rspec)
-     python
      lua
      html
      command-log
      javascript
      ;; restclient
      emacs-lisp
-     ranger
      ;; racket
      (spacemacs-layouts :variables layouts-enable-autosave t
                         layouts-autosave-delay 300)
@@ -74,6 +71,9 @@ values."
      gtags
      (colors :variables
              colors-enable-nyan-cat-progress-bar t)
+     (vinegar :variables vinegar-reuse-dired-buffer t)
+     (spacemacs-layouts :variables layouts-enable-autosave nil
+                        layouts-autosave-delay 300)
      (git :variables
           git-magit-status-fullscreen t
           magit-push-always-verify nil
@@ -99,9 +99,7 @@ values."
      react
      (python :variables
              python-test-runner '(nose pytest))
-     (ruby :variables ruby-version-manager 'chruby)
      ruby-on-rails
-     lua
      html
      javascript
      (typescript :variables
@@ -117,6 +115,8 @@ values."
      (chinese :packages youdao-dictionary fcitx
               :variables chinese-default-input-method 'pinyin
               chinese-enable-fcitx t
+     ;;(chinese :packages youdao-dictionary fcitx
+     ;;         :variables chinese-enable-fcitx nil
               chinese-enable-youdao-dict t)
      )
    ;; List of additional packages that will be installed without being
