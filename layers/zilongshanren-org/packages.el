@@ -40,9 +40,7 @@
   (add-hook 'org-mode-hook (lambda () (spacemacs/toggle-line-numbers-off)) 'append)
   (with-eval-after-load 'org
     (progn
-      ;; https://github.com/syl20bnr/spacemacs/issues/2994#issuecomment-139737911
-      ;; (when (configuration-layer/package-usedp 'company)
-      ;;   (spacemacs|add-company-hook org-mode))
+      
       (spacemacs|disable-company org-mode)
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "," 'org-priority)
@@ -219,8 +217,12 @@ unwanted space when exporting org-mode to html."
           (ad-set-arg 1 fixed-contents)))
 
       ;; define the refile targets
-      (setq org-agenda-files (quote ("~/org-notes" )))
-      (setq org-default-notes-file "~/org-notes/gtd.org")
+      (setq org-agenda-file-note (expand-file-name "notes.org" org-agenda-dir))
+      (setq org-agenda-file-gtd (expand-file-name "gtd.org" org-agenda-dir))
+      (setq org-agenda-file-journal (expand-file-name "journal.org" org-agenda-dir))
+      (setq org-agenda-file-code-snippet (expand-file-name "snippet.org" org-agenda-dir))
+      (setq org-default-notes-file (expand-file-name "gtd.org" org-agenda-dir))
+      (setq org-agenda-files (list org-agenda-dir))
 
       (with-eval-after-load 'org-agenda
         (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
@@ -231,32 +233,35 @@ unwanted space when exporting org-mode to html."
       ;;http://www.howardism.org/Technical/Emacs/journaling-org.html
       ;;add multi-file journal
       (setq org-capture-templates
-            '(("t" "Todo" entry (file+headline "~/org-notes/gtd.org" "Workspace")
+            '(("t" "Todo" entry (file+headline org-agenda-file-gtd "Workspace")
                "* TODO [#B] %?\n  %i\n"
                :empty-lines 1)
-              ("n" "notes" entry (file+headline "~/org-notes/notes.org" "Quick notes")
+              ("n" "notes" entry (file+headline org-agenda-file-note "Quick notes")
                "* %?\n  %i\n %U"
                :empty-lines 1)
-              ("b" "Blog Ideas" entry (file+headline "~/org-notes/notes.org" "Blog Ideas")
+              ("b" "Blog Ideas" entry (file+headline org-agenda-file-note "Blog Ideas")
                "* TODO [#B] %?\n  %i\n %U"
                :empty-lines 1)
               ("f" "Finance" entry (file+headline "~/org-notes/ritual.org" "Finance")
                "* TODO %?\n %i\n"
                :empty-lines 1)
               ("s" "Code Snippet" entry
-               (file "~/org-notes/snippets.org")
+               (file org-agenda-file-code-snippet)
                "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
               ("d" "Diary for morning" entry (file+datetree "~/org-notes/morning/morning.org" "Diary for morning")
                "* %?"
                :empty-lines 1)
-              ("c" "Chrome" entry (file+headline "~/org-notes/notes.org" "Quick notes")
+              ("w" "work" entry (file+headline org-agenda-file-gtd "Cocos2D-X")
+               "* TODO [#A] %?\n  %i\n %U"
+               :empty-lines 1)
+              ("c" "Chrome" entry (file+headline org-agenda-file-note "Quick notes")
                "* TODO [#C] %?\n %(zilongshanren/retrieve-chrome-current-tab-url)\n %i\n %U"
                :empty-lines 1)
-              ("l" "links" entry (file+headline "~/org-notes/notes.org" "Quick notes")
+              ("l" "links" entry (file+headline org-agenda-file-note "Quick notes")
                "* TODO [#C] %?\n  %i\n %a \n %U"
                :empty-lines 1)
               ("j" "Journal Entry"
-               entry (file+datetree "~/org-notes/journal.org")
+               entry (file+datetree org-agenda-file-journal)
                "* %?"
                :empty-lines 1)))
 
@@ -330,6 +335,7 @@ unwanted space when exporting org-mode to html."
       (setq org-mobile-directory "~/Nutstore/mobileorg")
       (setq org-directory "~/org-notes")
       (setq org-mobile-inbox-for-pull "~/Nutstore/mobileorg/from-mobile.org")
+
       ;; hack for org headline toc
       (defun org-html-headline (headline contents info)
         "Transcode a HEADLINE element from Org to HTML.
@@ -432,11 +438,11 @@ holding contextual information."
       (evilified-state-evilify org-octopress-summary-mode org-octopress-summary-mode-map)
       (add-hook 'org-octopress-summary-mode-hook
                 #'(lambda () (local-set-key (kbd "q") 'bury-buffer)))
-      (setq org-blog-dir "~/4gamers.cn/")
+      (setq org-blog-dir blog-admin-dir)
       (setq org-octopress-directory-top org-blog-dir)
       (setq org-octopress-directory-posts (concat org-blog-dir "source/_posts"))
       (setq org-octopress-directory-org-top org-blog-dir)
-      (setq org-octopress-directory-org-posts (concat org-blog-dir "blog"))
+      (setq org-octopress-directory-org-posts (expand-file-name  "blog" blog-admin-dir))
       (setq org-octopress-setup-file (concat org-blog-dir "setupfile.org"))
 
       )))
@@ -471,5 +477,5 @@ holding contextual information."
     (spacemacs/set-leader-keys-for-major-mode 'deft-mode "q" 'quit-window)
     (setq deft-recursive t)
     (setq deft-extension "org")
-    (setq deft-directory "~/org-notes")))
+    (setq deft-directory deft-dir)))
 ;;; packages.el ends here

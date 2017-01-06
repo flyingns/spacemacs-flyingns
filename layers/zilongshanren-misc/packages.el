@@ -41,7 +41,20 @@
         helm-ag
         ranger
         golden-ratio
+        (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
         ))
+
+(defun zilongshanren-misc/init-highlight-global ()
+  (use-package highlight-global
+    :init
+    (progn
+      (spacemacs/set-leader-keys "hh" 'highlight-frame-toggle)
+      (spacemacs/set-leader-keys "hc" 'clear-highlight-frame)
+      (setq-default highlight-faces
+        '(('hi-red-b . 0)
+          ('hi-yellow . 0)
+          ('hi-pink . 0)
+          ('hi-blue-b . 0))))))
 
 (defun zilongshanren-misc/post-init-golden-ratio ()
   (with-eval-after-load 'golden-ratio
@@ -1074,7 +1087,7 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
         (define-key ivy-minibuffer-map (kbd "C-s-m") 'ivy-partial-or-done)
         (define-key ivy-minibuffer-map (kbd "C-c s") 'ivy-ff-checksum)
         (define-key ivy-minibuffer-map (kbd "s-o") 'ivy-dispatching-done)
-        (define-key ivy-minibuffer-map (kbd "C-c C-e") 'counsel-git-grep-query-replace)
+        (define-key ivy-minibuffer-map (kbd "C-c C-e") 'spacemacs//counsel-edit)
         (define-key ivy-minibuffer-map (kbd "<f3>") 'ivy-occur)
         (define-key ivy-minibuffer-map (kbd "C-s-j") 'ivy-immediate-done)
         (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)

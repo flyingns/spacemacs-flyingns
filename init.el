@@ -103,8 +103,8 @@ values."
      html
      javascript
      (typescript :variables
-                 typescript-fmt-on-save nil
-                 typescript-fmt-tool 'typescript-formatter)
+                typescript-fmt-on-save nil
+                typescript-fmt-tool 'typescript-formatter)
      emacs-lisp
      (clojure :variables clojure-enable-fancify-symbols t)
      racket
@@ -413,7 +413,7 @@ values."
   (setq split-width-threshold 120)
   (linum-relative-on)
 
-  (spacemacs|add-company-hook 'text-mode)
+  (spacemacs|add-company-backends :modes text-mode)
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
@@ -485,3 +485,9 @@ values."
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
 (load custom-file 'no-error 'no-message)
 ;;(setq debug-on-error t)
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+)
