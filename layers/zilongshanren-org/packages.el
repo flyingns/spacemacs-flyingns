@@ -248,7 +248,8 @@ unwanted space when exporting org-mode to html."
               ("s" "Code Snippet" entry
                (file org-agenda-file-code-snippet)
                "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
-              ("d" "Diary for morning" entry (file+datetree "~/org-notes/morning/morning.org" "Diary for morning")
+              ("d" "Diary for morning" entry
+               (file+datetree "~/org-notes/morning/morning.org" "Diary for morning")
                "* %?"
                :empty-lines 1)
               ("w" "work" entry (file+headline org-agenda-file-gtd "Cocos2D-X")
