@@ -95,6 +95,7 @@
  '(web-mode-current-element-highlight-face ((t (:background "dark gray")))))
 ;(setq org-bullets-bullet-list '("◉" "○" "✸" "✿" "☢" "❀" "✚" "✜" "◖"))
 (setq org-bullets-bullet-list '("①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨"))
+;; (setq evil-default-state 'hybrid-mode-default-state)
 (setq org-src-tab-acts-natively t)
 ;(setq org-agenda-files (quote ("~/Nutstore/org/anniversary.org"
 ;							   "~/Nutstore/org/business.org"
