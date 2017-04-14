@@ -33,6 +33,7 @@ values."
    '(
      ivy
      better-defaults
+<<<<<<< HEAD
      github
      (version-control :variables version-control-diff-tool 'git-gutter+
                       version-control-global-margin t)
@@ -42,6 +43,9 @@ values."
      ;; semantic                           ; too slow
      markdown
      ;;prodigy
+=======
+     ;; github
+>>>>>>> zilong/develop
      ranger
      prodigy
      search-engine
