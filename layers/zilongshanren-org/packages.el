@@ -200,6 +200,7 @@
          (sql . t)
          (plantuml . t)
          (C . t)
+	 (clojure . t)
          (ditaa . t)))
 
 

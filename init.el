@@ -33,7 +33,7 @@ values."
    '(
      ivy
      better-defaults
-     github
+     ;;github
      (version-control :variables version-control-diff-tool 'git-gutter+
                       version-control-global-margin t)
      rcirc
@@ -111,11 +111,11 @@ values."
      ;;(c-c++ :variables
      ;;       c-c++-default-mode-for-headers 'c++-mode)
      pandoc
-     chinese-pyim
+     ;;chinese-pyim
      zilongshanren
-     (chinese :packages youdao-dictionary fcitx
+     (chinese ;; :packages youdao-dictionary fcitx
               :variables chinese-default-input-method 'pinyin
-              chinese-enable-fcitx t
+              ;;chinese-enable-fcitx t
      ;;(chinese :packages youdao-dictionary fcitx
      ;;         :variables chinese-enable-fcitx nil
               chinese-enable-youdao-dict t)
@@ -197,8 +197,8 @@ values."
    ;; `recents' `bookmarks' `projects' `agenda' `todos'."
    ;; List sizes may be nil, in which case
    ;; `spacemacs-buffer-startup-lists-length' takes effect.
-   dotspacemacs-startup-lists '((recents . 5)
-                                (projects . 7))
+   dotspacemacs-startup-lists nil		;;'((recents . 0)
+                                	;;(projects . 0))
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
@@ -217,7 +217,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Source Code Pro Light"
                                :size 16
                                :weight normal
                                :width normal
