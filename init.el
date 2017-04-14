@@ -111,7 +111,7 @@ values."
      ;;(c-c++ :variables
      ;;       c-c++-default-mode-for-headers 'c++-mode)
      pandoc
-     ;;chinese-pyim
+     ;; chinese-pyim
      zilongshanren
      (chinese ;; :packages youdao-dictionary fcitx
               :variables chinese-default-input-method 'pinyin
