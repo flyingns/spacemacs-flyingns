@@ -94,7 +94,7 @@ values."
      deft
      markdown
      org
-     shaders
+     gpu
      yaml
      react
      (python :variables
@@ -129,22 +129,38 @@ values."
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
    '(magit-gh-pulls magit-gitflow org-projectile evil-mc
-                        evil-args evil-ediff evil-exchange evil-unimpaired
-                        evil-indent-plus volatile-highlights smartparens
-                        spaceline holy-mode skewer-mode rainbow-delimiters
-                        highlight-indentation vi-tilde-fringe eyebrowse hl-anything
-                        smooth-scrolling
-                        livid-mode git-gutter git-gutter-fringe  evil-escape
-                        leuven-theme gh-md evil-lisp-state spray lorem-ipsum
-                        ac-ispell ace-jump-mode auto-complete auto-dictionary
-                        clang-format define-word google-translate disaster epic
-                        neotree orgit orglue
-                        helm-flyspell flyspell-correct-helm clean-aindent-mode
-                        helm-c-yasnippet ace-jump-helm-line helm-make
-                        helm-themes helm-swoop helm-spacemacs-help smeargle
-                        ido-vertical-mode flx-ido company-quickhelp counsel-projectile
-                        window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
-                        )
+   ;;                     evil-args evil-ediff evil-exchange evil-unimpaired
+   ;;                     evil-indent-plus volatile-highlights smartparens
+   ;;                    spaceline holy-mode skewer-mode rainbow-delimiters
+   ;;                     highlight-indentation vi-tilde-fringe eyebrowse hl-anything
+   ;;                     smooth-scrolling
+   ;;                     livid-mode git-gutter git-gutter-fringe  evil-escape
+   ;;                     leuven-theme gh-md evil-lisp-state spray lorem-ipsum
+   ;;                     ac-ispell ace-jump-mode auto-complete auto-dictionary
+   ;;                     clang-format define-word google-translate disaster epic
+   ;;                     neotree orgit orglue
+   ;;                     helm-flyspell flyspell-correct-helm clean-aindent-mode
+   ;;                     helm-c-yasnippet ace-jump-helm-line helm-make
+   ;;                     helm-themes helm-swoop helm-spacemacs-help smeargle
+   ;;                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
+   ;;                     window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
+   ;;                     )
+                    evil-args evil-ediff evil-exchange evil-unimpaired
+                    evil-indent-plus volatile-highlights smartparens
+                    spaceline holy-mode skewer-mode rainbow-delimiters
+                    highlight-indentation vi-tilde-fringe eyebrowse
+                    smooth-scrolling
+                    livid-mode git-gutter git-gutter-fringe  evil-escape
+                    leuven-theme gh-md evil-lisp-state spray lorem-ipsum symon
+                    ac-ispell ace-jump-mode auto-complete auto-dictionary
+                    clang-format define-word google-translate disaster epic
+                    orgit orglue spacemacs-theme
+                    helm-flyspell flyspell-correct-helm clean-aindent-mode
+                    helm-c-yasnippet ace-jump-helm-line helm-make magithub
+                    helm-themes helm-swoop helm-spacemacs-help smeargle
+                    ido-vertical-mode flx-ido company-quickhelp counsel-projectile
+                    window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
+                    )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
 
