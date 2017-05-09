@@ -172,7 +172,7 @@ org-files and bookmarks"
   `((name . "Mail and News")
     (candidates . (("Calendar" . (lambda ()  (browse-url "https://www.google.com/calendar/render")))
                    ("RSS" . elfeed)
-                   ("Blog" . org-octopress)
+                   ("Blog" . blog-admin-start)
                    ("Github" . (lambda() (helm-github-stars)))
                    ("Calculator" . (lambda () (helm-calcul-expression)))
                    ("Run current flie" . (lambda () (zilongshanren/run-current-file)))
@@ -480,7 +480,7 @@ With PREFIX, cd to project root."
 (defun ivy-ff-checksum ()
   (interactive)
   "Calculate the checksum of FILE. The checksum is copied to kill-ring."
-  (let ((file (expand-file-name ivy--current ivy--directory))
+  (let ((file (expand-file-name (ivy-state-current ivy-last) ivy--directory))
         (algo (intern (ivy-read
                        "Algorithm: "
                        '(md5 sha1 sha224 sha256 sha384 sha512)))))
@@ -488,6 +488,9 @@ With PREFIX, cd to project root."
                 (insert-file-contents-literally file)
                 (secure-hash algo (current-buffer))))
     (message "Checksum copied to kill-ring.")))
+
+(defun ivy-ff-checksum-action (x)
+  (ivy-ff-checksum))
 
 (defun my-find-file-in-git-repo (repo)
   (if (file-directory-p repo)
