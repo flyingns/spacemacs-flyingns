@@ -58,6 +58,8 @@ values."
            ruby-enable-enh-ruby-mode t
            ruby-version-manager 'chruby			;; rvm
            ruby-test-runner 'rspec)
+     (go :variables gofmt-command "goimports"
+         go-tab-width 4)
      lua
      html
      command-log
