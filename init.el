@@ -64,6 +64,9 @@ values."
      javascript
      ;; restclient
      emacs-lisp
+     (go :variables gofmt-command "goimports"
+         go-tab-width 4
+         go-use-gometalinter t)
      ;; racket
      (spacemacs-layouts :variables layouts-enable-autosave t
                         layouts-autosave-delay 300)
