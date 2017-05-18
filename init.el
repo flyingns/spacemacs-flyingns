@@ -153,7 +153,7 @@ values."
                     highlight-indentation vi-tilde-fringe eyebrowse
                     smooth-scrolling
                     livid-mode git-gutter git-gutter-fringe  evil-escape
-                    leuven-theme gh-md evil-lisp-state spray lorem-ipsum symon
+                    leuven-theme gh-md evil-lisp-state spray lorem-ipsum
                     ac-ispell ace-jump-mode auto-complete auto-dictionary
                     clang-format define-word google-translate disaster epic
                     orgit orglue spacemacs-theme
