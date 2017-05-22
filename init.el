@@ -88,12 +88,13 @@ values."
      (auto-completion :variables auto-completion-enable-sort-by-usage t
                       auto-completion-enable-snippets-in-popup t
                       :disabled-for org markdown)
-     ;;(osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English")
+     ;;(osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English"
+     ;;     osx-command-as 'super)
      restclient
      (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      (shell :variables shell-default-shell 'eshell)
-     docker
-     ;; latex
+     ;; docker
+     latex
      deft
      markdown
      org
@@ -103,6 +104,8 @@ values."
      (python :variables
              python-test-runner '(nose pytest))
      ruby-on-rails
+     ;; (ruby :variables ruby-version-manager 'chruby)
+     ;; ruby-on-rails
      html
      javascript
      (typescript :variables
@@ -131,7 +134,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
-   '(magit-gh-pulls magit-gitflow org-projectile evil-mc
+   '(magit-gh-pulls magit-gitflow org-projectile evil-mc realgud
                         evil-args evil-ediff evil-exchange evil-unimpaired
                         evil-indent-plus volatile-highlights smartparens
                         spaceline holy-mode skewer-mode rainbow-delimiters
@@ -160,6 +163,23 @@ values."
 ;;                   fancy-battery org-present orgit orglue spacemacs-theme
 ;;                    helm-flyspell flyspell-correct-helm clean-aindent-mode
 ;;                    helm-c-yasnippet ace-jump-helm-line helm-make magithub
+;;                    helm-themes helm-swoop helm-spacemacs-help smeargle
+;;                    ido-vertical-mode flx-ido company-quickhelp counsel-projectile
+;;                    window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
+;;                    )
+;;   '(magit-gh-pulls magit-gitflow org-projectile evil-mc realgud
+;;                    evil-args evil-ediff evil-exchange evil-unimpaired
+;;                    evil-indent-plus volatile-highlights smartparens
+;;                    spaceline holy-mode skewer-mode rainbow-delimiters
+;;                    highlight-indentation vi-tilde-fringe eyebrowse
+;;                    org-bullets smooth-scrolling org-repo-todo org-download org-timer
+;;                    livid-mode git-gutter git-gutter-fringe  evil-escape
+;;                    leuven-theme gh-md evil-lisp-state spray lorem-ipsum symon
+;;                    ac-ispell ace-jump-mode auto-complete auto-dictionary
+;;                    clang-format define-word google-translate disaster epic
+;;                    fancy-battery org-present orgit orglue spacemacs-theme
+;;                    helm-flyspell flyspell-correct-helm clean-aindent-mode
+;;                   helm-c-yasnippet ace-jump-helm-line helm-make magithub
 ;;                    helm-themes helm-swoop helm-spacemacs-help smeargle
 ;;                    ido-vertical-mode flx-ido company-quickhelp counsel-projectile
 ;;                    window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
