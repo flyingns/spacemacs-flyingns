@@ -42,7 +42,13 @@
         ranger
         golden-ratio
         (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
+        browse-at-remote
         ))
+
+(defun zilongshanren-misc/init-browse-at-remote ()
+  (use-package browse-at-remote
+    :defer t
+    :init (spacemacs/set-leader-keys "gho" 'browse-at-remote)))
 
 (defun zilongshanren-misc/init-highlight-global ()
   (use-package highlight-global
@@ -404,7 +410,7 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
   (progn
     (defhydra hydra-hotspots (:color blue)
       "Hotspots"
-      ("b" org-octopress "blog")
+      ("b" blog-admin-start "blog")
       ("g" helm-github-stars "helm github stars")
       ("r" zilongshanren/run-current-file "run current file"))
 
@@ -665,6 +671,9 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
   (progn
     (setcdr evil-insert-state-map nil)
     (define-key evil-insert-state-map [escape] 'evil-normal-state)
+
+    ;; disable highlight when use swiper or evil ex search, this option won't effect evil-ex-search-next command
+    (setq-default evil-ex-search-persistent-highlight nil)
 
     (push "TAGS" spacemacs-useless-buffers-regexp)
 
@@ -1005,7 +1014,15 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
       :tags '(org-mode)
       :init (lambda () (browse-url "http://localhost:8088"))
       :kill-signal 'sigkill
-      :kill-process-buffer-on-stop t)))
+      :kill-process-buffer-on-stop t)
+
+    (defun refresh-chrome-current-tab (beg end length-before)
+      (call-interactively 'zilongshanren/browser-refresh--chrome-applescript))
+    ;; add watch for prodigy-view-mode buffer change event
+    (add-hook 'prodigy-view-mode-hook
+              #'(lambda() (set (make-local-variable 'after-change-functions) #'refresh-chrome-current-tab)))
+
+    ))
 
 (defun zilongshanren-misc/init-moz-controller ()
   (use-package moz-controller
