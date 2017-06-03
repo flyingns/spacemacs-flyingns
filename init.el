@@ -71,6 +71,7 @@ values."
      (spacemacs-layouts :variables layouts-enable-autosave t
                         layouts-autosave-delay 300)
      emoji
+     (elfeed :variables rmh-elfeed-org-files (list "~/.spacemacs.d/private/elfeed.org"))
      gtags
      (colors :variables
              colors-enable-nyan-cat-progress-bar t)

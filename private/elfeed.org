@@ -1,0 +1,6 @@
+* blogs                                                        :elfeed:
+** daily                                                        :daily:
+** emacs                                                        :emacs:
+** IT
+*** http://sspai.com/feed                                             :SSPAI:
+*** http://www.sdifen.com/feed                                          :史蒂芬周:
