@@ -20,7 +20,6 @@
         cmake-font-lock
         cmake-mode
         flycheck
-        impatient-mode
         nodejs-repl
         (nodejs-repl-eval :location local)
         js2-mode
@@ -81,7 +80,7 @@
     :init
     (progn
       (defun conditional-enable-editorconfig ()
-        (if (and (zilongshanren/vcs-project-root)
+        (if (and (zilongshanren/git-project-root)
                  (locate-dominating-file default-directory ".editorconfig"))
             (editorconfig-apply)))
       (add-hook 'prog-mode-hook 'conditional-enable-editorconfig))))
@@ -134,40 +133,7 @@
         js-doc-url "http://www.zilongshanren.com"
         js-doc-license "MIT")
 
- (defun my-js-doc-insert-function-doc-snippet ()
-    "Insert JsDoc style comment of the function with yasnippet."
-    (interactive)
-
-    (with-eval-after-load 'yasnippet
-      (js-doc--beginning-of-defun)
-
-      (let ((metadata (js-doc--function-doc-metadata))
-            (field-count 1))
-        (yas-expand-snippet
-         (concat
-          js-doc-top-line
-          " * ${1:Function description.}\n"
-          (format "* @method %s\n" (nth-value 1 (split-string (which-function) "\\.")))
-          (mapconcat (lambda (param)
-                       (format
-                        " * @param {${%d:Type of %s}} %s - ${%d:Parameter description.}\n"
-                        (incf field-count)
-                        param
-                        param
-                        (incf field-count)))
-                     (cdr (assoc 'params metadata))
-                     "")
-          (when (assoc 'returns metadata)
-            (format
-             " * @returns {${%d:Return Type}} ${%d:Return description.}\n"
-             (incf field-count)
-             (incf field-count)))
-          (when (assoc 'throws metadata)
-            (format
-             " * @throws {${%d:Exception Type}} ${%d:Exception description.}\n"
-             (incf field-count)
-             (incf field-count)))
-          js-doc-bottom-line))))))
+  )
 
 
 (defun zilongshanren-programming/init-ctags-update ()
@@ -304,19 +270,6 @@
 
 (defun zilongshanren-programming/post-init-eldoc ()
   (setq eldoc-idle-delay 0.4))
-
-
-(defun zilongshanren-programming/init-impatient-mode ()
-  "Initialize impatient mode"
-  (use-package impatient-mode
-    :init
-    (progn
-      (add-hook 'web-mode-hook 'zilongshanren/impatient-mode-hook)
-      (spacemacs/set-leader-keys-for-major-mode 'web-mode
-        "p" 'imp-visit-buffer)
-      )))
-
-
 
 
 (defun zilongshanren-programming/post-init-js2-refactor ()
