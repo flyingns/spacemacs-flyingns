@@ -354,7 +354,7 @@ unwanted space when exporting org-mode to html."
       (define-key evil-normal-state-map (kbd "C-c C-w") 'org-refile)
       (setq org-mobile-directory "~/Nutstore/mobileorg")
       (setq org-directory "~/org-notes")
-      (setq org-mobile-inbox-for-pull "~/Nutstore/mobileorg/from-mobile.org")
+      (setq org-mobile-inbox-for-pull "~/Nutstore/mobileorg/refile-beorg.org")
 
       ;; hack for org headline toc
       (defun org-html-headline (headline contents info)
